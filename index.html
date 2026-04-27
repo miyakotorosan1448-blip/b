@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>抽選キャンペーン</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+      background: linear-gradient(135deg, #111827, #064e3b);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+    .card {
+      max-width: 640px;
+      width: 100%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 28px;
+      padding: 40px 24px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+    .badge {
+      display: inline-block;
+      background: #22c55e;
+      color: #052e16;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 34px;
+      line-height: 1.35;
+      margin-bottom: 18px;
+    }
+    p {
+      line-height: 1.8;
+      color: rgba(255,255,255,0.86);
+    }
+    .box {
+      background: rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 24px;
+      margin: 28px 0;
+    }
+    .btn {
+      border: none;
+      background: linear-gradient(90deg, #22c55e, #86efac);
+      color: #052e16;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 18px 28px;
+      border-radius: 18px;
+      width: 100%;
+      max-width: 380px;
+      cursor: pointer;
+    }
+    .status {
+      margin-top: 18px;
+      font-weight: bold;
+      color: #bbf7d0;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">期間限定</div>
+    <h1>抽選キャンペーンに<br>参加する</h1>
+    <p>
+      下のボタンから抽選に参加できます。<br>
+      当選された方は、特典受け取りページへ進めます。
+    </p>
+
+    <div class="box">
+      <h2>特別抽選</h2>
+      <p>参加は1分で完了します。</p>
+    </div>
+
+    <button class="btn" onclick="startDraw()">抽選を開始する</button>
+    <div id="status" class="status"></div>
+  </div>
+
+  <script>
+    function startDraw() {
+      const status = document.getElementById("status");
+      status.textContent = "抽選中です…";
+
+      setTimeout(() => {
+        status.textContent = "当選結果を確認しています…";
+      }, 900);
+
+      setTimeout(() => {
+        window.location.href = "win.html";
+      }, 1800);
+    }
+  </script>
+</body>
+</html>
